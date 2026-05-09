@@ -15,9 +15,6 @@ simple flow consisting of a login screen and a subsequent dashboard.
 
 ## Screenshots
 
-You can replace the `src` attributes in the table below with the actual paths or URLs to your
-screenshot image files.
-
 <table>
   <tr>
     <th style="text-align: center;">Login Screen</th>
@@ -35,7 +32,10 @@ screenshot image files.
       <img src="screenshots/setpass_screen.jpeg" alt="Set Password" width="250"/>
     </td><td align="center">
       <img src="screenshots/setpass_num.jpeg" alt="Numeric Input" width="250"/>
-    </td><td align="center">
+    </td>
+</tr>
+<tr>
+<td align="center">
       <img src="screenshots/setpass_invalid.jpeg" alt="Validation" width="250"/>
     </td><td align="center">
       <img src="screenshots/login.jpeg" alt="Login" width="250"/>
