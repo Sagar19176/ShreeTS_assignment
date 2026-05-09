@@ -1,5 +1,7 @@
 package com.oceanentp.shreets_assignment.ui.screens
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +24,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.BlurredEdgeTreatment
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -38,6 +47,7 @@ import com.oceanentp.shreets_assignment.ui.theme.LightTealBackground
 import com.oceanentp.shreets_assignment.ui.theme.PrimaryTeal
 import com.oceanentp.shreets_assignment.ui.theme.White
 
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
 fun WelcomeScreen(innerPadding: PaddingValues, onNavigateNext: () -> Unit) {
     Column(
@@ -52,15 +62,33 @@ fun WelcomeScreen(innerPadding: PaddingValues, onNavigateNext: () -> Unit) {
         Spacer(modifier = Modifier.height(20.dp))
 
         // Robot Image
-        Box(contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxWidth().fillMaxHeight(.65f)) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(.65f)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.starterpage),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .blur(radius = 20.dp, edgeTreatment = BlurredEdgeTreatment.Unbounded)
+                    .alpha(0.7f),
+                contentScale = ContentScale.Crop
+            )
+
             Image(
                 painter = painterResource(id = R.drawable.starterpage),
                 contentDescription = "Robot",
-                modifier = Modifier.fillMaxSize(),
-                contentScale = androidx.compose.ui.layout.ContentScale.Crop
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(10.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+                contentScale = ContentScale.Crop
             )
         }
+
 
         // Dots
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -68,12 +96,12 @@ fun WelcomeScreen(innerPadding: PaddingValues, onNavigateNext: () -> Unit) {
                 modifier = Modifier
                     .size(10.dp)
                     .clip(CircleShape)
-                    .background(PrimaryTeal.copy(alpha = 0.3f))
+                    .background(PrimaryTeal)
             )
             Box(
                 modifier = Modifier
-                    .size(10.dp)
-                    .clip(CircleShape)
+                    .size(width = 10.dp, height = 10.dp)
+                    .clip(RoundedCornerShape(5.dp))
                     .background(PrimaryTeal.copy(alpha = 0.3f))
             )
         }
@@ -115,4 +143,11 @@ fun WelcomeScreen(innerPadding: PaddingValues, onNavigateNext: () -> Unit) {
             Text(text = "Get Started", fontSize = 22.sp, color = White)
         }
     }
+}
+
+@RequiresApi(Build.VERSION_CODES.S)
+@Preview
+@Composable
+private fun WelcomePrev() {
+    WelcomeScreen(innerPadding = PaddingValues(0.dp), onNavigateNext = {})
 }
