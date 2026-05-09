@@ -2,15 +2,27 @@ package com.oceanentp.shreets_assignment.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -21,14 +33,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.oceanentp.shreets_assignment.R
-import com.oceanentp.shreets_assignment.ui.theme.*
+import com.oceanentp.shreets_assignment.ui.theme.DarkText
+import com.oceanentp.shreets_assignment.ui.theme.LightTealBackground
+import com.oceanentp.shreets_assignment.ui.theme.PrimaryTeal
+import com.oceanentp.shreets_assignment.ui.theme.White
 
 @Composable
-fun WelcomeScreen(onNavigateNext: () -> Unit) {
+fun WelcomeScreen(innerPadding: PaddingValues, onNavigateNext: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(LightTealBackground)
+            .padding(innerPadding)
             .padding(horizontal = 24.dp, vertical = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
@@ -36,23 +52,30 @@ fun WelcomeScreen(onNavigateNext: () -> Unit) {
         Spacer(modifier = Modifier.height(20.dp))
 
         // Robot Image
-        Image(
-            painter = painterResource(id = R.drawable.starterpage),
-            contentDescription = "Robot",
-            modifier = Modifier.size(height = 400.dp, width = 300.dp),
-            contentScale = androidx.compose.ui.layout.ContentScale.Crop
-        )
+        Box(contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxWidth().fillMaxHeight(.65f)) {
+            Image(
+                painter = painterResource(id = R.drawable.starterpage),
+                contentDescription = "Robot",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop
+            )
+        }
 
-        // Dots Indicator
+        // Dots
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Box(modifier = Modifier
-                .size(8.dp)
-                .clip(CircleShape)
-                .background(PrimaryTeal))
-            Box(modifier = Modifier
-                .size(8.dp)
-                .clip(CircleShape)
-                .background(PrimaryTeal.copy(alpha = 0.3f)))
+            Box(
+                modifier = Modifier
+                    .size(10.dp)
+                    .clip(CircleShape)
+                    .background(PrimaryTeal.copy(alpha = 0.3f))
+            )
+            Box(
+                modifier = Modifier
+                    .size(10.dp)
+                    .clip(CircleShape)
+                    .background(PrimaryTeal.copy(alpha = 0.3f))
+            )
         }
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -92,11 +115,4 @@ fun WelcomeScreen(onNavigateNext: () -> Unit) {
             Text(text = "Get Started", fontSize = 22.sp, color = White)
         }
     }
-}
-
-
-@Preview
-@Composable
-private fun WelcomePrev() {
-    WelcomeScreen {  }
 }

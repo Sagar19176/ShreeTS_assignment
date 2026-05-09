@@ -24,6 +24,7 @@ fun AppNavigation(innerPadding: PaddingValues) {
     NavHost(navController = navController, startDestination = Screen.Welcome.route) {
         composable(Screen.Welcome.route) {
             WelcomeScreen(
+                innerPadding = innerPadding,
                 onNavigateNext = { navController.navigate(Screen.SetPassword.route) }
             )
         }
