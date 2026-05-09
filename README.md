@@ -24,7 +24,7 @@ simple flow consisting of a login screen and a subsequent dashboard.
   </tr>
   <tr>
     <td align="center">
-      <img src="screenshots/welcome.jpeg" alt="Login Screen" width="250"/>
+      <img src="screenshots/welcome1.jpeg" alt="Login Screen" width="250"/>
     </td>
     <td align="center">
       <img src="screenshots/setpass_screen.jpeg" alt="Set Password" width="250"/>
@@ -45,8 +45,6 @@ simple flow consisting of a login screen and a subsequent dashboard.
       <img src="screenshots/login.jpeg" alt="Login" width="250"/>
     </td>
     <td align="center">
-      <img src="screenshots/setpass_num.jpeg" alt="Numeric Input" width="250"/>
-    </td>
       <img src="screenshots/dashboard.jpeg" alt="Dashboard" width="250"/>
     </td>
   </tr>
