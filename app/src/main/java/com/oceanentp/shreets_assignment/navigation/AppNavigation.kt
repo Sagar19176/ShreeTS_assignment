@@ -30,15 +30,22 @@ fun AppNavigation(innerPadding: PaddingValues) {
         }
         composable(Screen.SetPassword.route) {
             SetPasswordScreen(
+                innerPadding = innerPadding,
                 onSaveClicked = { navController.navigate(Screen.Login.route) }
             )
         }
         composable(Screen.Login.route) {
             LoginScreen(
-                onUnlock = { navController.navigate(Screen.Dashboard.route) {
-                    // Pop up to clear the backstack so user can't go back to login
-                    popUpTo(Screen.Welcome.route) { inclusive = true }
-                } }
+                innerPadding = innerPadding,
+                onUnlock = {
+                    navController.navigate(Screen.Dashboard.route) {
+                        // Pop up to clear the backstack so user can't go back to login
+                        popUpTo(Screen.Welcome.route) { inclusive = true }
+                    }
+                },
+                onForgotPassword = {
+                    navController.navigate(Screen.SetPassword.route)
+                }
             )
         }
         composable(Screen.Dashboard.route) {

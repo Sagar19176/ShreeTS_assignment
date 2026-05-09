@@ -24,7 +24,7 @@ fun CustomBottomNavigation() {
         tonalElevation = 0.dp
     ) {
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
+            icon = { Icon(Icons.Filled.Home, contentDescription = "Home") },
             label = { Text("Home", fontSize = 10.sp) },
             selected = true,
             onClick = { },
@@ -35,22 +35,37 @@ fun CustomBottomNavigation() {
             )
         )
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Email, contentDescription = "Chats") },
+            icon = { Icon(Icons.Filled.Email, contentDescription = "Chats") },
             label = { Text("Chats", fontSize = 10.sp) },
             selected = false,
-            onClick = { }
+            onClick = { },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = PrimaryTeal,
+                selectedTextColor = PrimaryTeal,
+                indicatorColor = Color.Transparent
+            )
         )
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Folder, contentDescription = "Files") },
+            icon = { Icon(Icons.Filled.Folder, contentDescription = "Files") },
             label = { Text("Files", fontSize = 10.sp) },
             selected = false,
-            onClick = { }
+            onClick = { },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = PrimaryTeal,
+                selectedTextColor = PrimaryTeal,
+                indicatorColor = Color.Transparent
+            )
         )
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Settings, contentDescription = "Settings") },
+            icon = { Icon(Icons.Filled.Settings, contentDescription = "Settings") },
             label = { Text("Settings", fontSize = 10.sp) },
             selected = false,
-            onClick = { }
+            onClick = { },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = PrimaryTeal,
+                selectedTextColor = PrimaryTeal,
+                indicatorColor = Color.Transparent
+            )
         )
     }
 }

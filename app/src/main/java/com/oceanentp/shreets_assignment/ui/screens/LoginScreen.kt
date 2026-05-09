@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -24,12 +25,13 @@ import com.oceanentp.shreets_assignment.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(onUnlock: () -> Unit) {
+fun LoginScreen(innerPadding: PaddingValues = PaddingValues(0.dp), onUnlock: () -> Unit, onForgotPassword: () -> Unit = {}) {
     var password by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(innerPadding)
             .background(LightTealBackground)
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -75,7 +77,10 @@ fun LoginScreen(onUnlock: () -> Unit) {
             text = "Forgot Password?",
             fontSize = 14.sp,
             color = DarkText,
-            modifier = Modifier.align(Alignment.End)
+            textDecoration = TextDecoration.Underline,
+            modifier = Modifier
+                .align(Alignment.End)
+                .clickable { onForgotPassword() }
         )
 
         Spacer(modifier = Modifier.height(48.dp))
@@ -93,8 +98,9 @@ fun LoginScreen(onUnlock: () -> Unit) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun LoginPrev() {
- LoginScreen {  }
+    LoginScreen(onUnlock = {}, onForgotPassword = {})
 }
+

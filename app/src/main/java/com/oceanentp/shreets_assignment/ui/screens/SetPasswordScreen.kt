@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -43,7 +44,7 @@ import com.oceanentp.shreets_assignment.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SetPasswordScreen(onSaveClicked: () -> Unit) {
+fun SetPasswordScreen(onSaveClicked: () -> Unit, innerPadding: PaddingValues) {
     var password by rememberSaveable { mutableStateOf("") }
     var confirmPassword by rememberSaveable { mutableStateOf("") }
     var isValid by remember { mutableStateOf(true) }
@@ -54,6 +55,7 @@ fun SetPasswordScreen(onSaveClicked: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(innerPadding)
             .background(LightTealBackground)
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -164,5 +166,5 @@ fun SetPasswordScreen(onSaveClicked: () -> Unit) {
 @Preview
 @Composable
 private fun SetPassPrev() {
-    SetPasswordScreen { }
+    SetPasswordScreen(onSaveClicked = {}, innerPadding = PaddingValues(0.dp))
 }

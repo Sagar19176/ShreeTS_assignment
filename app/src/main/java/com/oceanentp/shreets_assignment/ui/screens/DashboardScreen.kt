@@ -17,20 +17,15 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Folder
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StarPurple500
+import androidx.compose.material.icons.filled.Task
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,7 +43,6 @@ import com.oceanentp.shreets_assignment.ui.components.CategoryCard
 import com.oceanentp.shreets_assignment.ui.components.CustomBottomNavigation
 import com.oceanentp.shreets_assignment.ui.theme.DarkText
 import com.oceanentp.shreets_assignment.ui.theme.LightTealBackground
-import com.oceanentp.shreets_assignment.ui.theme.PrimaryTeal
 
 @Composable
 fun DashboardScreen() {
@@ -76,20 +70,24 @@ fun DashboardScreen() {
                         .clip(CircleShape)
                         .background(Color.Gray)
                 )
-
                 Spacer(modifier = Modifier.width(12.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("GOOD MORNING", fontSize = 12.sp, color = Color.Gray)
+                    Text("GOOD MORNING!", fontSize = 14.sp, color = Color.Gray)
                     Text(
-                        "Sagar Kumar",
-                        fontSize = 18.sp,
+                        "User",
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         color = DarkText
                     )
                 }
 
-                Icon(Icons.Default.Star, contentDescription = "Crown", tint = Color(0xFFFFA000))
+                Icon(
+                    Icons.Filled.StarPurple500,
+                    contentDescription = "Crown",
+                    tint = Color(0xFFFFA000),
+                    modifier = Modifier.size(36.dp)
+                )
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -160,7 +158,7 @@ fun DashboardScreen() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 2x2 Grid
+            //Grid
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -173,7 +171,7 @@ fun DashboardScreen() {
                 )
                 CategoryCard(
                     modifier = Modifier.weight(1f),
-                    icon = Icons.Default.Notifications,
+                    icon = Icons.Filled.Notifications,
                     title = "Alarm",
                     iconTint = Color(0xFF1976D2)
                 )
@@ -185,21 +183,38 @@ fun DashboardScreen() {
             ) {
                 CategoryCard(
                     modifier = Modifier.weight(1f),
-                    icon = Icons.Default.Phone,
+                    icon = Icons.Filled.Phone,
                     title = "Calls",
                     iconTint = Color(0xFF1976D2)
                 )
                 CategoryCard(
                     modifier = Modifier.weight(1f),
-                    icon = Icons.Default.DateRange,
+                    icon = Icons.Filled.DateRange,
                     title = "Calendar",
                     iconTint = Color(0xFFD32F2F)
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                CategoryCard(
+                    modifier = Modifier.weight(1f),
+                    icon = Icons.Filled.Task,
+                    title = "Tasks",
+                    iconTint = Color(0xFFEC69EA)
+                )
+                CategoryCard(
+                    modifier = Modifier.weight(1f),
+                    icon = Icons.Filled.AccountBalanceWallet,
+                    title = "Wallet",
+                    iconTint = Color(0xFF4CAF21)
                 )
             }
         }
     }
 }
-
 
 
 @Preview
