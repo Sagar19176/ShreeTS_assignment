@@ -20,9 +20,7 @@ simple flow consisting of a login screen and a subsequent dashboard.
     <th style="text-align: center;">Login Screen</th>
     <th style="text-align: center;">Set Password</th>
     <th style="text-align: center;">Numeric Input</th>
-    <th style="text-align: center;">Validation</th>
-    <th style="text-align: center;">Login</th>
-    <th style="text-align: center;">Dashboard</th>
+
   </tr>
   <tr>
     <td align="center">
@@ -33,6 +31,11 @@ simple flow consisting of a login screen and a subsequent dashboard.
     </td><td align="center">
       <img src="screenshots/setpass_num.jpeg" alt="Numeric Input" width="250"/>
     </td>
+</tr>
+<tr>
+<th style="text-align: center;">Validation</th>
+    <th style="text-align: center;">Login</th>
+    <th style="text-align: center;">Dashboard</th>
 </tr>
 <tr>
 <td align="center">
