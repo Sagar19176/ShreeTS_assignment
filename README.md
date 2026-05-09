@@ -33,16 +33,18 @@ simple flow consisting of a login screen and a subsequent dashboard.
     </td>
 </tr>
 <tr>
-<th style="text-align: center;">Validation</th>
+    <th style="text-align: center;">Validation</th>
     <th style="text-align: center;">Login</th>
     <th style="text-align: center;">Dashboard</th>
 </tr>
 <tr>
-<td align="center">
+    <td align="center">
       <img src="screenshots/setpass_invalid.jpeg" alt="Validation" width="250"/>
-    </td><td align="center">
+    </td>
+    <td align="center">
       <img src="screenshots/login.jpeg" alt="Login" width="250"/>
-    </td><td align="center">
+    </td>
+    <td align="center">
       <img src="screenshots/dashboard.jpeg" alt="Dashboard" width="250"/>
     </td>
   </tr>
